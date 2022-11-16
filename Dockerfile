@@ -1,8 +1,7 @@
 FROM python:3.10
 FROM ubuntu:22.04
-WORKDIR .
 
-RUN apt-get install -y gcc
+WORKDIR .
 
 ADD odbcinst.ini /etc/odbcinst.ini
 RUN apt-get update
