@@ -1,5 +1,5 @@
 FROM python:3.10
-
+FROM ubuntu:22.04
 WORKDIR .
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
