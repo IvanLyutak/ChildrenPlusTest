@@ -169,9 +169,11 @@ def callback_query(call):
                 bot.send_message(call.from_user.id, callbacks[data]["url"][i])
             bot.send_message(call.from_user.id, callbacks[data]["url"][len(callbacks[data]["url"]) - 1],
                              reply_markup=markup_inline)
+            return
 
         elif typeContent == 'other_video':
             add_video_category(call.from_user.id)
+            return
 
         elif typeContent == 'target group':
             markup_inline = types.InlineKeyboardMarkup()
@@ -359,6 +361,7 @@ def callback_query(call):
 
         elif typeContent == 'final':
             completion_course(call)
+            return
 
         elif typeContent == 'therapy':
             if data == "yes":
@@ -368,7 +371,7 @@ def callback_query(call):
             else:
                 bot.answer_callback_query(call.id, "Необходимо принять")
                 update_keyboard(call.from_user.id, "Необходимо принять")
-
+            return
         else:
             bot.answer_callback_query(call.id, Message.ERROR_UNKNOWN_REQUEST)
             bot.send_message(call.from_user.id, Message.ERROR_UNKNOWN_REQUEST)
