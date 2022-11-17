@@ -89,7 +89,11 @@ def get_content(message):
             else:
                 bot.send_message(message.chat.id, "Для вас курсов нет", reply_markup=markup_inline)
         elif message.text == "🎲 Игра":
-            bot.send_message(message.chat.id, Message.WELCOME_IN_GAME)
+            bot.send_message(message.chat.id, "Привет! Ты находишься в диалоговом квесте. В течении 10 дней твоя задача поговорить " \
+                      "с персонажем и выполнить ЗАДАЧУ дня. За один день можно пройти только один диалог. Игра " \
+                      "будет спращшивать тебя о таблетках, ведь их приема - залог твоей успешной жизни.В процессе " \
+                      "ты узнаешь много полезной информации. В конце тебя ждет СЕРТИФИКАТ об успешном прохождении игры." \
+                      " Удачи! ")
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             markup.add(types.KeyboardButton('Начать игру'))
             bot.send_message(message.chat.id, "Давайте начнем?", reply_markup=markup)
@@ -197,8 +201,8 @@ def callback_query(call):
             if callback is None:
                 markup_inline = types.InlineKeyboardMarkup()
                 markup_inline.add(types.InlineKeyboardButton(text="Завершить курс", callback_data="final/"))
-                bot.answer_callback_query(call.id, Message.ERROR_LACK_OF_CONTENT)
-                bot.send_message(call.from_user.id, Message.ERROR_LACK_OF_CONTENT, reply_markup=markup_inline)
+                bot.answer_callback_query(call.id, "Нет контента, скоро будет")
+                bot.send_message(call.from_user.id, "Нет контента, скоро будет", reply_markup=markup_inline)
                 return
 
             set_progress(call.from_user.id,
