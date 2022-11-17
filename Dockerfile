@@ -18,4 +18,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["main.py"]
+RUN chmod +x /startup.sh
+ENTRYPOINT ["sh","/startup.sh"]
