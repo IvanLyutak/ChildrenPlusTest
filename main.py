@@ -373,8 +373,8 @@ def callback_query(call):
                 update_keyboard(call.from_user.id, "Необходимо принять")
             return
         else:
-            bot.answer_callback_query(call.id, Message.ERROR_UNKNOWN_REQUEST)
-            bot.send_message(call.from_user.id, Message.ERROR_UNKNOWN_REQUEST)
+            bot.answer_callback_query(call.id, "Мне не чего сказать, скоро будет")
+            bot.send_message(call.from_user.id, "Мне не чего сказать, скоро будет")
     except BaseException as err:
         print(f"Unexpected {err=}, {typeContent(err)=}")
 
