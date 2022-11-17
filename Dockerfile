@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 WORKDIR .
 
 RUN apt update -y  &&  apt upgrade -y && apt-get update
-RUN apt install -y curl python3.10 git python3-pip unixodbc-dev
+RUN apt install -y curl python3.10 python3-pip unixodbc-dev
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
