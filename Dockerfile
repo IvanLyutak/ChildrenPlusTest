@@ -18,5 +18,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN chmod +x /startup.sh
-ENTRYPOINT ["sh","/startup.sh"]
+ENTRYPOINT python3 main.py
