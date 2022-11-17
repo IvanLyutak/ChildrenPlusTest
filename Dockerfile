@@ -17,4 +17,5 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY . .
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["/docker_entrypoint.sh"]
+#CMD ["main.py"]
